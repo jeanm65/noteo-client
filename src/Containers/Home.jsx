@@ -1,13 +1,13 @@
 import React from 'react';
 import Menu from '../Components/Menu';
 
-const Notes = () => {
+const Home = () => {
     return (
         <div>
-            <Menu /> 
-            Notes
+            <Menu />
+            <h1>Home</h1>
         </div>
     );
 };
 
-export default Notes;
+export default Home;
