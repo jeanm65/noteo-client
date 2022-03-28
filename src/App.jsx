@@ -1,19 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import Home from "./Pages/Home";
-import About from "./containers/About";
-import Footer from "./components/Footer";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./containers/Home";
+import Notes from "./containers/Notes";
+import MainRoute from "./MainRoute";
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/about" exact element={<About />} />
-        <Route path="*" element={<About />} />
-      </Routes>
-    </Router>
-  );
-};
+        <MainRoute path="/" element={<Home />} />
+        <MainRoute path="/notes" element={<Notes />} />
 
-export default App;
+        {/* for example, login page does not need menu and footer */}
+        <Route path="/login" element={<Notes />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
