@@ -14,8 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=5000 && react-scripts start",
-    "dev": "env-cmd -f .env.local react-scripts start",
+    "start": "react-scripts start",
+    "dev": "set PORT=5000 && env-cmd -f .env.local react-scripts start",
     "start:preprod": "env-cmd -f .env.preprod react-scripts start",
     "start:prod": "env-cmd -f .env.prod react-scripts start",
     "build": "react-scripts build",
