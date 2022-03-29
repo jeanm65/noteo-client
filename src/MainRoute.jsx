@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
-import Layout from "./components/layouts/Layout";
+import Layout from "./Components/layouts/Layout";
 
-const MainRoute = ({ component: Component, ...rest }) => {
+const MainRoute = ({ element: Component, ...rest }) => {
   return (
     <Route {...rest}>
       <Layout>
