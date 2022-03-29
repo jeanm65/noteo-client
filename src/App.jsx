@@ -4,18 +4,17 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./containers/Home";
+import Login from "./containers/Login";
 import Notes from "./containers/Notes";
-import MainRoute from "./MainRoute";
+import PublicRoute from "./PublicRoute";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <MainRoute path="/" element={<Home />} />
-        <MainRoute path="/notes" element={<Notes />} />
-
-        {/* for example, login page does not need menu and footer */}
-        <Route path="/login" element={<Notes />} />
+        <Route path="/" element={<PublicRoute component={Home} />} />
+        <Route path="/notes" element={<PublicRoute component={Notes} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )
