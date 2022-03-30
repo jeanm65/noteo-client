@@ -21,8 +21,7 @@
     "build": "react-scripts build",
     "build:preprod": "env-cmd -f .env.preprod react-scripts build",
     "build:prod": "env-cmd -f .env.prod react-scripts build",
-    "lint": "eslint \"src/*.{js,jsx}\"",
-    "lint:fix": "eslint \"src/*.{js,jsx}\" --fix",
+    "lint": "eslint --fix . --ext .js,.jsx",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
