@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './containers/Home';
-import Login from './containers/Login';
-import Notes from './containers/Notes';
+import Home from './containers2/Home';
+import Login from './containers2/Login';
+import Notes from './containers2/Notes';
 import PublicRoute from './PublicRoute';
 
 const App = () => {
