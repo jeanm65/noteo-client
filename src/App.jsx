@@ -1,23 +1,18 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Home from "./containers/Home";
-import Login from "./containers/Login";
-import Notes from "./containers/Notes";
-import PublicRoute from "./PublicRoute";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const App = () => {
-  return (
-    <BrowserRouter>
+import Home from './containers/Home';
+import Login from './containers/Login';
+import Notes from './containers/Notes';
+import PublicRoute from './PublicRoute';
+
+function App() {
+  return <BrowserRouter>
       <Routes>
         <Route path="/" element={<PublicRoute component={Home} />} />
         <Route path="/notes" element={<PublicRoute component={Notes} />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
-  )
 }
 
-export default App
+export default App;
