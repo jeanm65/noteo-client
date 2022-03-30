@@ -1,24 +1,23 @@
 import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 const menus = [
     {
         text: 'Home',
-        url: '/'
+        url: '/',
     },
     {
         text: 'Notes',
-        url: '/notes'
+        url: '/notes',
     },
     {
         text: 'Login',
-        url: '/login'
+        url: '/login',
     },
 ];
 
-const Menu = () => {
-    return (
-        <div className='Menu'>
+const Menu = () => <div className='Menu'>
             <ul>
                 {menus.map((menu, index) => (
                     <li key={index}>
@@ -28,8 +27,6 @@ const Menu = () => {
                     </li>
                 ))}
             </ul>
-        </div>
-    );
-};
+        </div>;
 
 export default Menu;

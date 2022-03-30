@@ -1,0 +1,5 @@
+node_modules
+.eslintrc.json
+next.config.js
+server.js
+cloud

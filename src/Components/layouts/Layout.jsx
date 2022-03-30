@@ -1,9 +1,8 @@
-import Footer from "./Footer";
-import Menu from "./Menu";
+import Footer from './Footer';
+import Menu from './Menu';
 
-const Layout = ({ children }) => {
-  return (
-    <div>
+const Layout = ({ children }) =>
+ <div>
       {/* ---------- header menu  ---------- */}
       <Menu />
       {/* ---- main content of the page  --- */}
@@ -12,8 +11,6 @@ const Layout = ({ children }) => {
       </main>
       {/* ---------- page footer  ---------- */}
       <Footer />
-    </div>
-  );
-};
+    </div>;
 
 export default Layout;
