@@ -17,16 +17,20 @@ const menus = [
     },
 ];
 
-const Menu = () => <div className='Menu'>
-            <ul>
-                {menus.map((menu, index) => (
-                    <li key={index}>
-                        <NavLink to={menu.url}>
-                            {menu.text}
-                        </NavLink>
-                    </li>
+const Menu = () => {
+  return (
+    <div className="Menu">
+      <ul>
+        {menus.map((menu, index) => (
+          <li key={index}>
+            <NavLink to={menu.url}>
+              {menu.text}
+            </NavLink>
+          </li>
                 ))}
-            </ul>
-        </div>;
+      </ul>
+    </div>
+  );
+};
 
 export default Menu;
