@@ -108,3 +108,7 @@ input:invalid[focused="true"] ~ span {
   display:block;
 }
 
+.result {
+  margin-top: 20px;
+}
+

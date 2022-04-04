@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const Login = () => {
+  const [showResult, setShowResult] = useState(false);
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -16,6 +17,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     console.log('values', values);
 
+    if (values.email) {
+      setShowResult(true);
+    }
+
     if (!values.email) {
       setErrors({ ...errors, email: 'Email required' });
     }
@@ -27,8 +32,12 @@ const Login = () => {
   };
 
   const onChange = (e) => {
+    setShowResult(false);
+
     if (!e.target.value) {
       setErrors({ ...errors, [e.target.name]: e.target.value });
+    } else {
+      setErrors({ ...errors, [e.target.name]: '' });
     }
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -77,6 +86,12 @@ const Login = () => {
             <input type="submit" value="LOGIN" className="button" />
           </div>
         </form>
+
+        {showResult && (!errors.email && !errors.password) && (
+          <div className="result">
+            <span>Email: {values.email}</span>
+          </div>
+        )}
       </div>
     </div>
   );
