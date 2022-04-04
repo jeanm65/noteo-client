@@ -1,0 +1,99 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 20px auto;
+  border: 2px solid grey;
+  width: 35%;
+  height: 650px;
+  border-radius: 5px;
+  border-color: teal;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin: 20px 30px; 
+} 
+label{
+  color: grey;
+}
+input{
+  width: 290px;
+  height: 40px;
+  margin:5px;
+  border-radius: 5px;
+  border: 1px solid rgb(221, 218, 218);
+  font-size: 18px;
+}
+.check{
+  display: flex;
+  margin: 4px;
+}
+.submit{
+  display: flex;
+  text-align: center;
+}
+input[type='checkbox']{
+  margin-left:40px;
+  width: 15px;
+  height: 15px;
+  accent-color: teal;
+}
+input[type='submit']{
+  margin: 10px auto;
+  background-color: teal;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+h2, h4, h5{
+  text-align: center;
+}
+h5{
+  margin-top: 20px;
+}
+span{
+  font-size: 12px;
+  padding: 3px;
+  color:red;
+  display: none;
+}
+input:invalid[focused="true"] ~ span {
+  display:block;
+}
+@media screen and (min-width:771px) and (max-width:960px) {
+  input{
+    max-width: 280px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 218, 218);
+  }
+}
+@media screen and (min-width:540px) and (max-width:770px) {
+  input{
+    max-width: 150px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 218, 218);
+  }
+}
+@media screen and (min-width:400px) and (max-width:637px) {
+  input{
+    max-width: 100px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 218, 218);
+  }
+}
