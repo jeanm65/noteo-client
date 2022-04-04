@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const Login = (props) => {
   const [focused, setFocused] = useState(false);
   const handleFocused = () => {
@@ -8,17 +10,15 @@ const Login = (props) => {
 } = props;
   return (
     <div className="inputs">
-      <div className="main">
-        <label>{label}</label>
-        <input
-          key={id}
-          {...inputProps}
-          onChange={onChange}
-          onBlur={handleFocused}
-          focused={focused.toString()}
-        />
-        <span>{errorMessage}</span>
-      </div>
+      <label>{label}</label>
+      <input
+        key={id}
+        {...inputProps}
+        onChange={onChange}
+        onBlur={handleFocused}
+        focused={focused.toString()}
+      />
+      <span>{errorMessage}</span>
     </div>
   );
 };

@@ -53,6 +53,7 @@ const App = () => {
           element={
             <div className="form">
               <form onSubmit={handleSubmit}>
+
                 <h2>LOGIN</h2>
                 {inputs.map((input) => (
                   <Login
