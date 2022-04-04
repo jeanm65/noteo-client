@@ -22,7 +22,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background-color: #6D9AC4;
 }
 .card {
   display: flex;
@@ -32,9 +32,9 @@ code {
   align-items: center;
   border: 2px solid grey;
   width: 400px;
-  /* height: 650px; */
   border-radius: 12px;
   padding: 70px 50px;
+  background-color: #fff;
 }
 .form {
   display: flex;
@@ -50,9 +50,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   margin-top: 20px;
-  /* margin-bottom: 20px; */
   align-self: stretch;
 }
 .checkboxContainer {
@@ -104,8 +102,8 @@ label {
   font-size: 12px;
   padding: 3px;
   color:red;
-  display: none;
 }
+
 input:invalid[focused="true"] ~ span {
   display:block;
 }

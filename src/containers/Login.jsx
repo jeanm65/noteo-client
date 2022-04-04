@@ -4,21 +4,29 @@ const Login = () => {
   const [values, setValues] = useState({
     email: '',
     password: '',
-    rememberMe: false,
+    rememberMe: true,
   });
 
   const [errors, setErrors] = useState({
-    mail: '',
+    email: '',
     password: '',
   });
 
   // const [checkValue, setCheckValue] = useState(true);
   const handleSubmit = (e) => {
     console.log('values', values);
+
+    if (!values.email) {
+      setErrors({ ...errors, email: 'Email required' });
+    }
+    if (!values.password) {
+      setErrors({ ...errors, password: 'Password required' });
+    }
+
     e.preventDefault();
   };
 
-  const onChange = () => {
+  const onChange = (e) => {
     if (!e.target.value) {
       setErrors({ ...errors, [e.target.name]: e.target.value });
     }
@@ -61,7 +69,7 @@ const Login = () => {
           </div>
 
           <div className="formControl checkboxContainer">
-            <input type="checkbox" name="checkbox" value={values.rememberMe} onChange={checkOnchange} className="checkboxInput" />
+            <input type="checkbox" name="rememberMe" checked={values.rememberMe} onChange={checkOnchange} className="checkboxInput" />
             <label htmlFor="checkbox">Remember me?</label>
           </div>
 
