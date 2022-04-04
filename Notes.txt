@@ -1,2 +1,7 @@
 React Router:
 https://stackoverflow.com/questions/69864165/error-privateroute-is-not-a-route-component-all-component-children-of-rou
+
+Best practices:
+- On isole dans un autre component tous les routes (ici, Routes.jsx);
+- Ainsi, on importe seulement ce Routes.jsx dans App.jsx;
+- On travaille seulement les login (form) dans login.jsx;
