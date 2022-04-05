@@ -34,46 +34,53 @@ const Login = () => (
         } = props;
         return (
           <div className="container">
-            <form onSubmit={onSubmit}>
-              <div className="card">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                {touched.email && errors.email ? <div>{errors.email}</div> : null}
+            <div className="card">
+              <form onSubmit={onSubmit}>
+                <div className="formControl">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                  />
+                  {touched.email && errors.email ? <span className="erroMessage">{errors.email}</span> : null}
+                </div>
 
-                <label htmlFor="password">Email Address</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                />
-                {touched.password && errors.password ? (
-                  <div>{errors.email}</div>
+                <div className="formControl">
+                  <label htmlFor="password">Email Address</label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                  />
+                  {touched.password && errors.password ? (
+                    <span className="erroMessage">{errors.email}</span>
               ) : null}
+                </div>
 
-                <label htmlFor="checkbox">Remember Me</label>
-                <input
-                  id="rememberMe"
-                  name="rememberMe"
-                  type="checkbox"
-                  onChange={handleChange}
-                  value={values.checked}
-                />
+                <div className="formControl checkboxContainer">
+                  <label htmlFor="checkbox">Remember Me</label>
+                  <input
+                    id="rememberMe"
+                    name="rememberMe"
+                    type="checkbox"
+                    onChange={handleChange}
+                    value={values.checked}
+                    className="checkboxInput"
+                  />
+                </div>
 
-                <button type="submit" disabled={isSubmitting}>
+                <button type="submit" disabled={isSubmitting} className="button">
                   Submit
                 </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         );
       }}

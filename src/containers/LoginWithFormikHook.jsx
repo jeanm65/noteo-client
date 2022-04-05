@@ -3,7 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const LoginCopy = () => {
+const LoginWithFOrmikHook = () => {
   const formik = useFormik({
     initialValues: {
       mail: '',
@@ -36,11 +36,11 @@ const LoginCopy = () => {
               type="email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.email}
+              value={formik.values.mail}
             />
             {formik.touched.mail && formik.errors.mail ? (
-              <p>{formik.errors.mail}</p>
-          ) : null}
+              <span className="erroMessage">{formik.errors.mail}</span>
+            ) : null}
           </div>
 
           <div className="formControl">
@@ -54,27 +54,29 @@ const LoginCopy = () => {
               value={formik.values.password}
             />
             {formik.touched.password && formik.errors.password ? (
-              <p>{formik.errors.password}</p>
-          ) : null}
+              <span className="erroMessage">{formik.errors.password}</span>
+            ) : null}
           </div>
 
-          <label htmlFor="checkbox">Remember Me</label>
-          <input
-            id="rememberMe"
-            name="rememberMe"
-            type="checkbox"
-            onChange={handleChange}
-            value={formik.values.checked}
-          />
+          <div className="formControl checkboxContainer">
+            <label htmlFor="checkbox">Remember Me</label>
+            <input
+              id="rememberMe"
+              name="rememberMe"
+              type="checkbox"
+              onChange={handleChange}
+              value={formik.values.checked}
+              className="checkboxInput"
+            />
+          </div>
 
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} className="button">
             Submit
           </button>
         </form>
       </div>
     </div>
-
   );
 };
 
-export default LoginCopy;
+export default LoginWithFOrmikHook;
