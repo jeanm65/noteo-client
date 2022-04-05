@@ -12,7 +12,7 @@ const Login = () => (
         rememberMe: '',
       }}
       onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
+        console.log(JSON.stringify(values, null, 2));
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string().email().required('Required'),
