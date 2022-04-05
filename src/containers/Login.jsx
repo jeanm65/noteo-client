@@ -1,100 +1,78 @@
-import { useState } from 'react';
+import React from 'react';
 
-const Login = () => {
-  const [showResult, setShowResult] = useState(false);
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-    rememberMe: true,
-  });
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
-  const [errors, setErrors] = useState({
-    email: '',
-    password: '',
-  });
+const Login = () => (
+  <div className="container">
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+        rememberMe: '',
+      }}
+      onSubmit={(values) => {
+        alert(JSON.stringify(values, null, 2));
+      }}
+      validationSchema={Yup.object().shape({
+        email: Yup.string().email().required('Required'),
+        password: Yup.string().required('Required'),
+      })}
+    >
+      {(props) => {
+        const {
+          values,
+          touched,
+          errors,
+          isSubmitting,
+          handleChange,
+          handleSubmit,
+        } = props;
+        return (
+          <form onSubmit={handleSubmit}>
+            <div className="card">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+              />
+              {touched.email && errors.email ? <div>{errors.email}</div> : null}
 
-  // const [checkValue, setCheckValue] = useState(true);
-  const handleSubmit = (e) => {
-    console.log('values', values);
+              <label htmlFor="password">Email Address</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+              />
+              {touched.password && errors.password ? (
+                <div>{errors.email}</div>
+              ) : null}
 
-    if (values.email) {
-      setShowResult(true);
-    }
+              <label htmlFor="checkbox">Remember Me</label>
+              <input
+                id="rememberMe"
+                name="rememberMe"
+                type="checkbox"
+                onChange={handleChange}
+                value={values.checked}
+              />
 
-    if (!values.email) {
-      setErrors({ ...errors, email: 'Email required' });
-    }
-    if (!values.password) {
-      setErrors({ ...errors, password: 'Password required' });
-    }
-
-    e.preventDefault();
-  };
-
-  const onChange = (e) => {
-    setShowResult(false);
-
-    if (!e.target.value) {
-      setErrors({ ...errors, [e.target.name]: e.target.value });
-    } else {
-      setErrors({ ...errors, [e.target.name]: '' });
-    }
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-
-  const checkOnchange = (e) => {
-    setValues({ ...values, rememberMe: e.currentTarget.checked });
-  };
-
-  return (
-    <div className="container">
-      <div className="card">
-        <div className="titleContainer">
-          <h2>LOGIN</h2>
-        </div>
-        <form onSubmit={handleSubmit} className="form">
-          <div className="formControl">
-            <label>Email</label>
-            <input
-              name="email"
-              type="email"
-              value={values.email}
-              onChange={onChange}
-              className="field"
-            />
-            {errors.email && <span className="errorMessage">{errors.email}</span>}
-          </div>
-
-          <div className="formControl">
-            <label>Mot de passe</label>
-            <input
-              name="password"
-              type="password"
-              value={values.password}
-              onChange={onChange}
-              className="field"
-            />
-            {errors.password && <span className="errorMessage">{errors.password}</span>}
-          </div>
-
-          <div className="formControl checkboxContainer">
-            <input type="checkbox" name="rememberMe" checked={values.rememberMe} onChange={checkOnchange} className="checkboxInput" />
-            <label htmlFor="checkbox">Remember me?</label>
-          </div>
-
-          <div className="formControl buttonContainer">
-            <input type="submit" value="LOGIN" className="button" />
-          </div>
-        </form>
-
-        {showResult && (!errors.email && !errors.password) && (
-          <div className="result">
-            <span>Email: {values.email}</span>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </div>
+          </form>
+        );
+      }}
+    </Formik>
+  </div>
+);
 
 export default Login;
