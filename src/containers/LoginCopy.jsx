@@ -26,33 +26,38 @@ const LoginCopy = () => {
   });
   return (
     <div className="container">
-      <form onSubmit={formik.handleSubmit}>
-        <div className="card">
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
-          {formik.touched.mail && formik.errors.mail ? (
-            <p>{formik.errors.mail}</p>
+      <div className="card">
+        <form onSubmit={formik.handleSubmit} className="form">
+          <div className="formControl">
+            <label htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {formik.touched.mail && formik.errors.mail ? (
+              <p>{formik.errors.mail}</p>
           ) : null}
+          </div>
 
-          <label htmlFor="password">Email Address</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-          />
-          {formik.touched.password && formik.errors.password ? (
-            <p>{formik.errors.password}</p>
+          <div className="formControl">
+            <label htmlFor="password">Email Address</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <p>{formik.errors.password}</p>
           ) : null}
+          </div>
+
           <label htmlFor="checkbox">Remember Me</label>
           <input
             id="rememberMe"
@@ -65,9 +70,10 @@ const LoginCopy = () => {
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
+
   );
 };
 
