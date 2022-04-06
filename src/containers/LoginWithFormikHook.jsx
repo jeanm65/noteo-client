@@ -1,25 +1,18 @@
 import React from 'react';
+import '../styles.css';
 
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 
-const LoginWithFOrmikHook = () => {
+import { loginValidationSchema } from '../utils/validation';
+
+const LoginWithFormikHook = () => {
   const formik = useFormik({
     initialValues: {
       mail: '',
       password: '',
       rememberMe: true,
     },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .min(8, 'must be 8 caracters or more')
-        .email('invalid email address')
-        .required('Required'),
-      password: Yup.string()
-        .min(8, 'must be 8 caracters or more')
-        .required('Required'),
-      rememberMe: Yup.checked(),
-    }),
+    validationSchema: loginValidationSchema,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -79,4 +72,4 @@ const LoginWithFOrmikHook = () => {
   );
 };
 
-export default LoginWithFOrmikHook;
+export default LoginWithFormikHook;
