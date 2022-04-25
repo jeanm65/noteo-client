@@ -1,10 +1,12 @@
 import React from 'react';
 
-import LoginForm from '../LoginForm';
+import Menu from '../../components/layouts/Menu';
+import LoginForm from './LoginForm';
 
 const Login = () => {
   return (
     <div className="container">
+      <Menu />
       <div className="card">
         <div className="titleContainer">
           <h2>LOGIN</h2>

@@ -20,9 +20,9 @@ const menus = [
 const Menu = () => {
   return (
     <div className="Menu">
-      <ul>
+      <ul className="menu-item">
         {menus.map((menu, index) => (
-          <li key={index}>
+          <li key={index} className="menu-items">
             <NavLink to={menu.url}>
               {menu.text}
             </NavLink>

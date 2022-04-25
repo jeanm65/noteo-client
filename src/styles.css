@@ -23,6 +23,7 @@ code {
   justify-content: center;
   align-items: center;
   background-color: #6D9AC4;
+  flex-direction: column;
 }
 .card {
   display: flex;
@@ -112,3 +113,16 @@ input:invalid[focused="true"] ~ span {
   margin-top: 20px;
 }
 
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+.menu-items {
+  list-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+  text-decoration: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}

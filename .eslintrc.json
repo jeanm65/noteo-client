@@ -4,7 +4,7 @@
     "prefer-arrow"
   ],
   "rules": {
-    "semi": [2, "always"],
+    "semi": ["warn", "always"],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-indent": [2, 2],
     "react/jsx-indent-props": [2, 2],
@@ -21,7 +21,7 @@
         "devDependencies": true
       }
     ],
-    "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "no-tabs": ["warn", { "allowIndentationTabs": true }],
     "jsx-a11y/click-events-have-key-events": "off",
     "linebreak-style": "off",
     "no-undef": "off",
@@ -48,6 +48,9 @@
     "indent": "off",
     "react/forbid-prop-types": "off",
     "no-await-in-loop": "off",
+    "default-param-last": "off",
+    "import/no-import-module-exports": "off",
+    "no-unused-vars": "warn",
     "prefer-arrow/prefer-arrow-functions": [
       "warn",
       {

@@ -1,9 +1,11 @@
 import { React } from 'react';
-import './styles.css';
 
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { loginValidationSchema } from './utils/validation';
+import { login } from '../../actions/auth';
+import { loginValidationSchema } from '../../utils/validation';
 
 const initialValues = {
   email: '',
@@ -12,8 +14,12 @@ const initialValues = {
 };
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const onSubmit = (values) => {
-    console.log('values', values);
+    dispatch(login(values));
+    navigate('/');
   };
   return (
     <Formik
@@ -28,13 +34,13 @@ const LoginForm = () => {
           isSubmitting,
           handleChange,
           handleBlur,
+          handleSubmit,
         }) => {
           return (
-            <form onSubmit={onSubmit} className="form">
+            <form onSubmit={handleSubmit} className="form">
               <div className="formControl">
-                <label htmlFor="email">Email Address</label>
+                <label>Email Address</label>
                 <input
-                  id="email"
                   name="email"
                   type="email"
                   onChange={handleChange}
@@ -45,9 +51,8 @@ const LoginForm = () => {
                 {touched.email && errors.email ? <span className="errorMessage">{errors.email}</span> : null}
               </div>
               <div className="formControl">
-                <label htmlFor="password">Email Address</label>
+                <label htmlFor="password">Mot de passe</label>
                 <input
-                  id="password"
                   name="password"
                   type="password"
                   onChange={handleChange}
@@ -76,12 +81,11 @@ const LoginForm = () => {
                   Submit
                 </button>
               </div>
-
             </form>
-                     );
-                    }}
+          );
+        }}
     </Formik>
-              );
-            };
+    );
+  };
 
-            export default LoginForm;
+  export default LoginForm;
